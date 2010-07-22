@@ -47,16 +47,16 @@ var MooImageTip = new Class({
 					tip.setStyles({ 'position': 'absolute', 'left': e.page.x + $this.options.offset.x, 'top': e.page.y + $this.options.offset.y });
 					tip.set('tween', $this.options.fx);
 					tip.fade('hide').inject($(document.body), 'bottom').fade('in');
-					$this.fireEvent('shown');
+					$this.fireEvent('shown', [$this, tip]);
 				},
 				'mouseleave': function() {
 					var tip = $($this.options.tipId);
 					var tween = tip.get('tween');
 					tween.start('opacity', 0).chain(function() {
 						tip.destroy();
-						$this.fireEvent('hide');
+						$this.fireEvent('hide', [$this]);
 					});
-					$this.fireEvent('hiding');
+					$this.fireEvent('hiding', [$this, tip]);
 				},
 				'mousemove': function(e) {
 					if (!$this.options.follow) return;

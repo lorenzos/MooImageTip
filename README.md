@@ -3,7 +3,7 @@ MooColorPicker
 
 A MooTools plugin for choosing a color from a list of square boxes.
 
-![Screenshot](http://github.com/lorenzos/MooColorPicker/raw/master/Graphics/logo.png)
+![Screenshot](http://github.com/lorenzos/MooImageTip/raw/master/Graphics/logo.png)
 
 
 How to use
@@ -11,41 +11,45 @@ How to use
 
 JS sample:
 
-	// Create the color picker with some colors
-	var cp = new MooColorPicker($('cp'), {
-		colors: [
-			"#001B2E", "#479096", "#4A7390",
-			"#036564", "#4F2634", "#B6BFAD", "#2D0D10"],
-		defaultColor: 3 // Select #4A7390
-	});
-
-	// Display current color
-	$('current_color').set('html', 'Current color is: ' + cp.getCurrentColor());
-	cp.addEvent('change', function(col, box) {
-		$('current_color').set('html', 'Current color is: ' + col);
+	// Just create the object in the DOM ready event
+	window.addEvent('domready', function() {
+		var myImageTip = new MooImageTip();
 	});
 	
+	// If you want to customize the tip, you can use some options
+	window.addEvent('domready', function() {
+		var myAdvancedImageTip = new MooImageTip({
+			offset: {x: 4, y: 4}		// This will move the tip relative to mouse position
+			className: 'mylinks',		// This is the links class name
+			tipId: 'mytip',				// This is the tip ID, for styling
+			follow: false,				// Tip will not follow the mouse cursor
+			fx: { duration: 'short' }	// Additional Fx options
+		});
+	});
+
 HTML code:
 
-	<div id="cp">Color picker container</div>
-	<div id="current_color">No color selected</div>
+	<div>
+		Standard tip:
+		<a href="#" class="imagetip" rel="image.jpg" title="Label">example link</a>.
+	</div>
+	
+	<div>
+		Customized tip:
+		<a href="#" class="mylinks" rel="image.jpg" title="Label">example link</a>.
+	</div>
 	
 CSS rules:
 	
-	div.moocolorcheckbox {
-		width: 24px;
-		height: 24px;
-		margin: 4px 2px 4px 0px;
-		border: 1px solid white;
-		border-radius: 4px;
-		-moz-border-radius: 4px;
-		-moz-box-shadow: 1px 1px 5px #cccccc;
-		overflow: hidden; }
+	/* Standard tip styling (default ID is "mooimagetip") */
+	#mooimagetip {
+		padding: 5px;
+		background-color: #CCCCCC; }
 
-	div.moocolorcheckbox_selected {
-		width: 32px;
-		height: 32px;
-		margin: 0px 2px 0px 0px;
+	/* Customized tip styling (our ID is "mytip") */
+	#mytip {
+		padding: 5px;
+		background-color: #CCCCFF;
 	}
 
 
@@ -58,43 +62,33 @@ Implements:
 
 Syntax and options:
 
-	var cp = new MooColorPicker(container, options);
-	
-	container: 
-		The <div> container (will be empty).
+	var myImageTip = new MooImageTip(options);
 	
 	options (object, optional): 
 		Initial options for the class. Options are:
-			colors: An array of strings, like ["#0123456", "#789ABC"].
-			defaultColor: Index of preselected color 
-				(default -1, none).
-			className: CSS class for single color <div> boxes 
-				(default 'moocolorcheckbox').
-			selectedClassName: CSS class for selected color <div> box 
+			offset: An object like {x: 16, y: 16}, that specify the distance
+				of the tip from the mouse cursor (default {x; 16, y: 16}).
+			className: Class name of the links to parse (default "imagetip").
+			tipId: ID for the tip element, for styling (default "mooimagetip").
+			follow: If TRUE (default) tip will follow mouse cursor movements.
 				(default 'moocolorcheckbox_selected').
+			fx: An object for additional Fx options (tip fade in/out).
 
 Events:
 
-	change(color, item): 
-		Fires when selected color is changed. Color is selected color, 
-		item is the selected color <div> box.
+	shown(me, tip): 
+		Fires when the tip is shown. Me is the MooImageTip object,
+		Tip is the created element.
 	
-	mouseenter(div), mouseleave(div):
-		Fires when mouse over or leave a color <div> box.
+	hide(me):
+		Fires when mouse the tip is completely faded out.
+		Me is the MooImageTip object
+	
+	hiding(me, tip):
+		Fires when tip is starting to hide. Me is the MooImageTip object,
+		Tip is the tip element.
 
 Methods:
 
-	addColor(color): 
-		Adds a color to the list.
-	
-	removeColor(color): 
-		Removes a color from the list.
-	
-	selectColor(color): 
-		Select a color if it is in the list.
-	
-	getCurrentColor():
-		Returs current color as "#HHHHHH" string.
-	
-	getContainer():
-		Return container <div>.
+	getTipId(): 
+		Gets the tip element ID.
