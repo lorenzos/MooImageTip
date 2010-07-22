@@ -31,12 +31,12 @@ HTML code:
 
 	<div>
 		Standard tip:
-		<a href="#" class="imagetip" rel="image.jpg" title="Label">example link</a>.
+		<a href="#" class="imagetip" rel="image.jpg" title="Label">link</a>.
 	</div>
 	
 	<div>
 		Customized tip:
-		<a href="#" class="mylinks" rel="image.jpg" title="Label">example link</a>.
+		<a href="#" class="mylinks" rel="image.jpg" title="Label">link</a>.
 	</div>
 	
 CSS rules:
