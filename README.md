@@ -1,7 +1,7 @@
-MooColorPicker
-==============
+MooImageTip
+===========
 
-A MooTools plugin for choosing a color from a list of square boxes.
+A MooTools plugin that displays image tooltips when you rollover links and thumbnails.
 
 ![Screenshot](http://github.com/lorenzos/MooImageTip/raw/master/Graphics/logo.png)
 
@@ -71,7 +71,6 @@ Syntax and options:
 			className: Class name of the links to parse (default "imagetip").
 			tipId: ID for the tip element, for styling (default "mooimagetip").
 			follow: If TRUE (default) tip will follow mouse cursor movements.
-				(default 'moocolorcheckbox_selected').
 			fx: An object for additional Fx options (tip fade in/out).
 
 Events:
@@ -82,7 +81,7 @@ Events:
 	
 	hide(me):
 		Fires when mouse the tip is completely faded out.
-		Me is the MooImageTip object
+		Me is the MooImageTip object.
 	
 	hiding(me, tip):
 		Fires when tip is starting to hide. Me is the MooImageTip object,
