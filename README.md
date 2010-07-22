@@ -66,8 +66,8 @@ Syntax and options:
 	
 	options (object, optional): 
 		Initial options for the class. Options are:
-			offset: An object like {x: 16, y: 16}, that specify the distance
-				of the tip from the mouse cursor (default {x; 16, y: 16}).
+			offset: An object like {x: 16, y: 16} (default), that specify the distance
+				of the tip from the mouse cursor.
 			className: Class name of the links to parse (default "imagetip").
 			tipId: ID for the tip element, for styling (default "mooimagetip").
 			follow: If TRUE (default) tip will follow mouse cursor movements.
