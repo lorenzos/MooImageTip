@@ -19,7 +19,7 @@ JS sample:
 	// If you want to customize the tip, you can use some options
 	window.addEvent('domready', function() {
 		var myAdvancedImageTip = new MooImageTip({
-			offset: {x: 4, y: 4}		// This will move the tip relative to mouse position
+			offset: {x: 4, y: 4},		// This will move the tip relative to mouse position
 			className: 'mylinks',		// This is the links class name
 			tipId: 'mytip',				// This is the tip ID, for styling
 			follow: false,				// Tip will not follow the mouse cursor
