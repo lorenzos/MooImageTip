@@ -62,7 +62,7 @@ var MooImageTip = new Class({
 				},
 				'mousemove': function(e) {
 					if (!$this.options.follow) return;
-					$($this.options.tipId).setStyles({'left': e.page.x + $this.options.offset.x, 'top': e.page.y + $this.options.offset.y});
+					if ($($this.options.tipId)) $($this.options.tipId).setStyles({'left': e.page.x + $this.options.offset.x, 'top': e.page.y + $this.options.offset.y});
 					$this.fireEvent('moving');
 				}
 			});
