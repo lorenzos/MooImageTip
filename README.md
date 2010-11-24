@@ -3,7 +3,7 @@ MooImageTip
 
 A MooTools plugin that displays image tooltips when you rollover links and thumbnails.
 
-![Screenshot](http://github.com/lorenzos/MooImageTip/raw/master/Graphics/logo.png)
+![Screenshot](https://github.com/lorenzos/MooImageTip/raw/master/Graphics/logo.png)
 
 
 How to use
