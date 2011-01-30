@@ -11,6 +11,8 @@ How to use
 
 JS sample:
 
+	#JS
+	
 	// Just create the object in the DOM ready event
 	window.addEvent('domready', function() {
 		var myImageTip = new MooImageTip();
@@ -29,6 +31,8 @@ JS sample:
 
 HTML code:
 
+	#HTML
+	
 	<div>
 		Standard tip:
 		<a href="#" class="imagetip" rel="image.jpg" title="Label">link</a>.
@@ -40,6 +44,8 @@ HTML code:
 	</div>
 	
 CSS rules:
+
+	#CSS
 	
 	/* Standard tip styling (default ID is "mooimagetip") */
 	#mooimagetip {
