@@ -80,7 +80,7 @@ Events:
 		Tip is the created element.
 	
 	hide(me):
-		Fires when mouse the tip is completely faded out.
+		Fires when the tip is completely faded out.
 		Me is the MooImageTip object.
 	
 	hiding(me, tip):
