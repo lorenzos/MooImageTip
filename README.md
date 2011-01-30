@@ -56,38 +56,28 @@ CSS rules:
 Docs
 ----------
 
-Implements:
+**Implements:** `Options, Events`
 
-	Options, Events
+**Syntax:**
 
-Syntax and options:
-
+	#JS
+	
 	var myImageTip = new MooImageTip(options);
 	
-	options (object, optional): 
-		Initial options for the class. Options are:
-			offset: An object like {x: 16, y: 16} (default), that specify
-				the distance of the tip from the mouse cursor.
-			className: Class name of the links to parse (default "imagetip").
-			tipId: ID for the tip element, for styling (default "mooimagetip").
-			follow: If TRUE (default) tip will follow mouse cursor movements.
-			fx: An object for additional Fx options (tip fade in/out).
+**Options** (*object*, optional): Initial options for the class. Options are:
 
-Events:
+- **`offset`**: An object like `{x: 16, y: 16}` (default), that specify the distance of the tip from the mouse cursor.
+- **`className`**: Class name of the links to parse (default `"imagetip"`).
+- **`tipId`**: ID for the tip element, for styling (default `"mooimagetip"`).
+- **`follow`**: If `TRUE` (default) tip will follow mouse cursor movements.
+- **`fx`**: An object for additional `Fx` options (tip fade in/out).
 
-	shown(me, tip): 
-		Fires when the tip is shown. Me is the MooImageTip object,
-		Tip is the created element.
-	
-	hide(me):
-		Fires when the tip is completely faded out.
-		Me is the MooImageTip object.
-	
-	hiding(me, tip):
-		Fires when tip is starting to hide. Me is the MooImageTip object,
-		Tip is the tip element.
+**Events:**
 
-Methods:
+- **`shown(me, tip)`**: Fires when the tip is shown. `Me` is the `MooImageTip` object, `Tip` is the created element.
+- **`hide(me)`**: Fires when the tip is completely faded out. `Me` is the `MooImageTip` object.
+- **`hiding(me, tip)`**: Fires when tip is starting to hide. `Me` is the `MooImageTip` object, `Tip` is the tip element.
 
-	getTipId(): 
-		Gets the tip element ID.
+**Methods:**
+
+- **`getTipId()`**: Gets the tip element ID.
