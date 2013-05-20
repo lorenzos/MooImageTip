@@ -35,8 +35,13 @@ var MooImageTip = new Class({
 			$(item).addEvents({
 				'mouseenter': function(e) {
 					var title = $(item).getProperty('title');
+
 					var image = $(item).getProperty($this.options.dataSource);
 					if (!image) return;
+
+					if (!title) title = $(item).getProperty('data-title_original');
+					$(item).setProperty('data-title_original', title);
+					$(item).setProperty('title', '');
   
 					if ($($this.options.tipId)) $($this.options.tipId).destroy();
 					var tip = new Element('p', {'id': $this.options.tipId});
@@ -58,6 +63,7 @@ var MooImageTip = new Class({
 						$this.fireEvent('hide', [$this]);
 					});
 					$this.fireEvent('hiding', [$this, tip]);
+					
 				},
 				'mousemove': function(e) {
 					if (!$this.options.follow) return;
