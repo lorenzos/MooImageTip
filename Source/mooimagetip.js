@@ -24,7 +24,8 @@ var MooImageTip = new Class({
 		className: 'imagetip',
 		tipId: 'mooimagetip',
 		follow: true,
-		fx: { }
+		fx: { },
+		dataSource: 'data-photo'
 	},
 
 	initialize: function(options) {
@@ -34,9 +35,14 @@ var MooImageTip = new Class({
 			$(item).addEvents({
 				'mouseenter': function(e) {
 					var title = $(item).getProperty('title');
-					var image = $(item).getProperty('rel');
+
+					var image = $(item).getProperty($this.options.dataSource);
 					if (!image) return;
-                    if (!title) title = $(item).getProperty('title_original');
+
+					if (!title) title = $(item).getProperty('data-title_original');
+					$(item).setProperty('data-title_original', title);
+					$(item).setProperty('title', '');
+  
 					if ($($this.options.tipId)) $($this.options.tipId).destroy();
 					var tip = new Element('p', {'id': $this.options.tipId});
 					new Element('img', {'src': image, 'alt': title, 'title': title}).inject(tip);
@@ -44,8 +50,6 @@ var MooImageTip = new Class({
 						new Element('br').inject(tip);
 						new Element('span', {'text': title}).inject(tip);
 					}
-                    $(item).setProperty('title_original', title);
-                    $(item).setProperty('title', '');
 					tip.setStyles({ 'position': 'absolute', 'left': e.page.x + $this.options.offset.x, 'top': e.page.y + $this.options.offset.y });
 					tip.set('tween', $this.options.fx);
 					tip.fade('hide').inject($(document.body), 'bottom').fade('in');
@@ -59,6 +63,7 @@ var MooImageTip = new Class({
 						$this.fireEvent('hide', [$this]);
 					});
 					$this.fireEvent('hiding', [$this, tip]);
+					
 				},
 				'mousemove': function(e) {
 					if (!$this.options.follow) return;
