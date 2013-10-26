@@ -9,7 +9,21 @@ A MooTools plugin that displays image tooltips when you rollover links and thumb
 How to use
 ----------
 
-JS sample:
+HTML markup:
+
+	#HTML
+	
+	<div>
+		Standard tip:
+		<a href="#" class="imagetip" data-image="image.jpg" title="Label">link</a>.
+	</div>
+	
+	<div>
+		Customized tip:
+		<a href="#" class="mylinks" data-image="image.jpg" title="Label">link</a>.
+	</div>
+	
+JS code:
 
 	#JS
 	
@@ -21,28 +35,14 @@ JS sample:
 	// If you want to customize the tip, you can use some options
 	window.addEvent('domready', function() {
 		var myAdvancedImageTip = new MooImageTip({
-			offset: {x: 4, y: 4},		// Offset relative to mouse position
-			className: 'mylinks',		// This is the links class name
-			tipId: 'mytip',				// This is the tip ID, for styling
-			follow: false,				// Tip will not follow the mouse cursor
-			fx: { duration: 'short' }	// Additional Fx options
+			offset: { x: 4, y: 4 },   // Offset relative to mouse position
+			className: 'mylinks',     // This is the links class name
+			tipId: 'mytip',           // This is the tip ID, for styling
+			follow: false,            // Tip will not follow the mouse cursor
+			fx: { duration: 'short' } // Additional Fx options
 		});
 	});
 
-HTML code:
-
-	#HTML
-	
-	<div>
-		Standard tip:
-		<a href="#" class="imagetip" rel="image.jpg" title="Label">link</a>.
-	</div>
-	
-	<div>
-		Customized tip:
-		<a href="#" class="mylinks" rel="image.jpg" title="Label">link</a>.
-	</div>
-	
 CSS rules:
 
 	#CSS
@@ -77,6 +77,7 @@ Docs
 - **`tipId`**: ID for the tip element, for styling (default `"mooimagetip"`).
 - **`follow`**: If `TRUE` (default) tip will follow mouse cursor movements.
 - **`fx`**: An object for additional `Fx` options (tip fade in/out).
+- **`source`**: Attribute name in which you place the image URL (default `"data-image"`).
 
 **Events:**
 

@@ -25,7 +25,7 @@ var MooImageTip = new Class({
 		tipId: 'mooimagetip',
 		follow: true,
 		fx: { },
-		dataSource: 'data-photo'
+		source: 'data-image'
 	},
 
 	initialize: function(options) {
@@ -36,7 +36,7 @@ var MooImageTip = new Class({
 				'mouseenter': function(e) {
 					var title = $(item).getProperty('title');
 
-					var image = $(item).getProperty($this.options.dataSource);
+					var image = $(item).getProperty($this.options.source);
 					if (!image) return;
 
 					if (!title) title = $(item).getProperty('data-title_original');
